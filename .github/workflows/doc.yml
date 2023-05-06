@@ -1,4 +1,4 @@
-name: Docs 3.9 
+name: Docs
 
 on:
   workflow_dispatch:
