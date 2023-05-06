@@ -113,9 +113,12 @@ jobs:
       uses: actions/upload-artifact@v3.1.2
       with:
         # Artifact name
-        name: python-win32-windows
+        name: python-win32-3.8.16-windows
         # A file, directory or wildcard pattern that describes what to upload
-        path: ./PCbuild/win32/en-us/
+        path: |
+          ./PCbuild/win32/en-us/*.exe
+          ./PCbuild/win32/en-us/*.zip
+          ./PCbuild/win32/en-us/*.nupkg
 
   build_win_amd64:
     name: 'Windows (x64)'
@@ -136,9 +139,12 @@ jobs:
       uses: actions/upload-artifact@v3.1.2
       with:
         # Artifact name
-        name: python-amd64-windows
+        name: python-amd64-3.8.16-windows
         # A file, directory or wildcard pattern that describes what to upload
-        path: ./PCbuild/amd64/en-us/
+        path: |
+          ./PCbuild/amd64/en-us/*.exe
+          ./PCbuild/amd64/en-us/*.zip
+          ./PCbuild/amd64/en-us/*.nupkg
 
   build_macos:
     name: 'macOS'
