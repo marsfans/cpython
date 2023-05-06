@@ -1,6 +1,7 @@
-name: Docs
+name: Docs 3.9
 
 on:
+  workflow_dispatch:
   #push:
   #  branches:
   #  - master
