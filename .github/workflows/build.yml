@@ -101,11 +101,20 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build CPython
-      run: .\PCbuild\build.bat -e -p Win32
+      run: |
+        #.\PCbuild\build.bat -e -p Win32
+        .\Tools\msi\buildrelease.bat -x86
     - name: Display build info
       run: .\python.bat -m test.pythoninfo
     - name: Tests
       run: .\PCbuild\rt.bat -p Win32 -q -uall -u-cpu -rwW --slowest --timeout=1200 -j0
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3.1.2
+      with:
+        # Artifact name
+        name: python-win32-windows
+        # A file, directory or wildcard pattern that describes what to upload
+        path: ./PCbuild/win32/en-us/
 
   build_win_amd64:
     name: 'Windows (x64)'
@@ -115,11 +124,20 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build CPython
-      run: .\PCbuild\build.bat -e -p x64
+      run: |
+        # .\PCbuild\build.bat -e -p x64
+        .\Tools\msi\buildrelease.bat -x64
     - name: Display build info
       run: .\python.bat -m test.pythoninfo
     - name: Tests
       run: .\PCbuild\rt.bat -p x64 -q -uall -u-cpu -rwW --slowest --timeout=1200 -j0
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3.1.2
+      with:
+        # Artifact name
+        name: python-amd64-windows
+        # A file, directory or wildcard pattern that describes what to upload
+        path: ./PCbuild/amd64/en-us/
 
   build_macos:
     name: 'macOS'
