@@ -118,8 +118,8 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build CPython
       run: |
-        # .\PCbuild\build.bat -e  -p Win32
-        .\Tools\msi\buildrelease.bat -x86
+        .\PCbuild\build.bat -e  -p Win32
+        # .\Tools\msi\buildrelease.bat -x86
       timeout-minutes: 30
     - name: Display build info
       run: .\python.bat -m test.pythoninfo
@@ -145,12 +145,12 @@ jobs:
        IncludeUwp: 'true'
     steps:
     - uses: actions/checkout@v3
-    - name: Register MSVC problem matcher
-      run: echo "::add-matcher::.github/problem-matchers/msvc.json"
+    # - name: Register MSVC problem matcher
+    #   run: echo "::add-matcher::.github/problem-matchers/msvc.json"
     - name: Build CPython
       run: |
-        # .\PCbuild\build.bat -e -p x64
-         .\Tools\msi\buildrelease.bat -x64
+        .\PCbuild\build.bat -e -p x64
+        # .\Tools\msi\buildrelease.bat -x64
       timeout-minutes: 30
     - name: Display build info
       run: .\python.bat -m test.pythoninfo
