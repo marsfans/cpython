@@ -193,6 +193,16 @@ jobs:
       run: .\python.bat -m test.pythoninfo
     - name: Tests
       run: .\PCbuild\rt.bat -p Win32 -d -q -uall -u-cpu -rwW --slowest --timeout=1200 -j0
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3.1.2
+      with:
+        # Artifact name
+        name: python-win32-3.12.0b2-windows
+        # A file, directory or wildcard pattern that describes what to upload
+        path: |
+          ./PCbuild/win32/en-us/*.nupkg
+          ./PCbuild/win32/en-us/*.zip
+          ./PCbuild/win32/en-us/*.exe
 
   build_win_amd64:
     name: 'Windows (x64)'
@@ -212,6 +222,16 @@ jobs:
       run: .\python.bat -m test.pythoninfo
     - name: Tests
       run: .\PCbuild\rt.bat -p x64 -d -q -uall -u-cpu -rwW --slowest --timeout=1200 -j0
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3.1.2
+      with:
+        # Artifact name
+        name: python-x64-3.12.0b2-windows
+        # A file, directory or wildcard pattern that describes what to upload
+        path: |
+          ./PCbuild/win32/en-us/*.nupkg
+          ./PCbuild/win32/en-us/*.zip
+          ./PCbuild/win32/en-us/*.exe
 
   build_macos:
     name: 'macOS'
