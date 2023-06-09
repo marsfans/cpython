@@ -284,7 +284,7 @@ jobs:
       uses: actions/upload-artifact@v3.1.2
       with:
         # Artifact name
-        name: python-amd64-3.12.0b2-windows
+        name: python-amd64-3.12.0b2-macos
         # A file, directory or wildcard pattern that describes what to upload
         path: |
           *.dmg
