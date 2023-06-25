@@ -187,7 +187,7 @@ jobs:
       uses: actions/upload-artifact@v3.1.2
       with:
         # Artifact name
-        name: python-win32-3.12.0b2-windows 
+        name: python-win32-3.12.0b3-windows 
         # A file, directory or wildcard pattern that describes what to upload
         path: |
           ./PCbuild/win32/en-us/*.nupkg
@@ -218,7 +218,7 @@ jobs:
       uses: actions/upload-artifact@v3.1.2
       with:
         # Artifact name
-        name: python-x64-3.12.0b2-windows
+        name: python-x64-3.12.0b3-windows
         # A file, directory or wildcard pattern that describes what to upload
         path: |
           ./PCbuild/amd64/en-us/*.nupkg
@@ -260,21 +260,21 @@ jobs:
       run: make pythoninfo
     - name: Tests
       run: make buildbottest TESTOPTS="-j4 -uall,-cpu"
-    - name: create dmg  
-      uses: QQxiaoming/create-dmg-action@v0.0.2
-      with:
-        name: 'python-amd64-3.12.0b2-macos'
-        srcdir: './'
-    - name: info
-      run: ls
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v3.1.2
-      with:
-        # Artifact name
-        name: python-amd64-3.12.0b2-macos
-        # A file, directory or wildcard pattern that describes what to upload
-        path: |
-          *.dmg
+#     - name: create dmg  
+#       uses: QQxiaoming/create-dmg-action@v0.0.2
+#       with:
+#         name: 'python-amd64-3.12.0b2-macos'
+#         srcdir: './'
+#     - name: info
+#       run: ls
+#     - name: Upload a Build Artifact
+#       uses: actions/upload-artifact@v3.1.2
+#       with:
+#         # Artifact name
+#         name: python-amd64-3.12.0b2-macos
+#         # A file, directory or wildcard pattern that describes what to upload
+#         path: |
+#           *.dmg
 
   build_ubuntu:
     name: 'Ubuntu'
